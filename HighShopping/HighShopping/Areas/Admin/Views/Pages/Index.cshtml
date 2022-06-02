@@ -9,9 +9,9 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table sorting" id="pages">
     <thead>
-        <tr>         
+        <tr class="home">
             <th>
                 Tiêu đề
             </th>
@@ -22,23 +22,41 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @item.Title
-            </td>
-            <td>
-                @item.Slug
-            </td>           
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @if (item.Slug != "home")
-                {
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Bạn có chắc chắn muốn xóa?');" })
-                }
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr id="id_@item.Id" class="@item.Slug">
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Slug
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @if (item.Slug != "home")
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Bạn có chắc chắn muốn xóa?');" })
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts {
+    <script>
+        //Jquery
+        $("table#pages tbody").sortable({
+            items: "tr:not(.home)",
+            placeholder: "ui-state-highlight",
+            update: function () {
+                let ids = $("table#pages tbody").sortable("serialize");
+                let url = "/admin/pages/reorder";
+
+                //Ajax
+                $.post(url, ids, function () { });
+            }                     
+        })
+    </script>
+}

@@ -28,7 +28,7 @@ namespace HighShopping.Areas.Admin.Controllers
             return View(pagesList);
         }
 
-        // GET details/id
+        // GET /admin/pages/details/id
         public async Task<IActionResult> Details(int id)
         {
             Page page = await _context.Pages.FirstOrDefaultAsync(x => x.Id == id);
@@ -40,7 +40,7 @@ namespace HighShopping.Areas.Admin.Controllers
             return View(page);
         }
 
-        // GET /create
+        // GET /admin/pages/create
         public IActionResult Create() => View();
 
         // POST /create
@@ -69,7 +69,7 @@ namespace HighShopping.Areas.Admin.Controllers
             return View(page);
         }
 
-        // GET edit/id
+        // GET /admin/pages/edit/id
         public async Task<IActionResult> Edit(int id)
         {
             Page page = await _context.Pages.FindAsync(id);
@@ -81,7 +81,7 @@ namespace HighShopping.Areas.Admin.Controllers
             return View(page);
         }
 
-        // POST /edit
+        // POST /admin/pages/edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Page page)
@@ -106,7 +106,7 @@ namespace HighShopping.Areas.Admin.Controllers
             return View(page);
         }
 
-        // GET delete/id
+        // GET /admin/pages/delete/id
         public async Task<IActionResult> Delete(int id)
         {
             Page page = await _context.Pages.FindAsync(id);
@@ -123,6 +123,23 @@ namespace HighShopping.Areas.Admin.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        // POST /admin/pages/reorder
+        [HttpPost]
+        public async Task<IActionResult> Reorder(int[] id)
+        {
+            int count = 1;
+
+            foreach (var pageId in id)
+            {
+                Page page = await _context.Pages.FindAsync(pageId);
+                page.Sorting = count;
+                _context.Update(page);
+                await _context.SaveChangesAsync();
+                count++;
+            }
+            return Ok();
         }
     }
 }

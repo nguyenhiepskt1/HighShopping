@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Page>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Quản lý trang";
 }
 
-<h1>Index</h1>
+<h1>Trang</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Thêm trang</a>
 </p>
 <table class="table sorting" id="pages">
     <thead>
@@ -32,11 +32,11 @@
                     @item.Slug
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |
                     @if (item.Slug != "home")
                     {
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Bạn có chắc chắn muốn xóa?');" })
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.Id }, new { onclick = "return confirm('Bạn có chắc chắn muốn xóa?');" })
                     }
                 </td>
             </tr>

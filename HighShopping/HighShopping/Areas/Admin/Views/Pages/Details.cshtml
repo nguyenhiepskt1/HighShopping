@@ -1,13 +1,13 @@
 ﻿@model Page
 
 @{
-    ViewData["Title"] = "Details Page";
+    ViewData["Title"] = "Chi tiết trang";
 }
 
-<h1>Details</h1>
+<h1>Thông tin chi tiết</h1>
 
 <div>
-    <h4>Page</h4>
+    <h4>Trang</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -43,6 +43,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.Id }) |
+    <a asp-action="Index">Quay lại danh sách</a>
 </div>

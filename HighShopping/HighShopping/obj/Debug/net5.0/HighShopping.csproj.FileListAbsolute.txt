@@ -295,3 +295,5 @@ C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debu
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Pages\Edit.cshtml.g.cs
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\bin\Debug\net5.0\libman.json
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Index.cshtml.g.cs
+C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Create.cshtml.g.cs
+C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Edit.cshtml.g.cs

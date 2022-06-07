@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+}
+
+<h1>Sản phẩm</h1>
+
+<p>
+    <a asp-action="Create">Thêm sản phẩm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Giá
+            </th>
+            <th>
+                Danh mục
+            </th>
+            <th>
+                Hình ảnh
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @item.Category.Name
+            </td>
+            <td>
+                Hình ảnh
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.Id }) |                
+                @Html.ActionLink("Xóa", "Delete", new { id = item.Id }, new { onclick = "return confirm('Bạn có chắc chắn muốn xóa?');" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

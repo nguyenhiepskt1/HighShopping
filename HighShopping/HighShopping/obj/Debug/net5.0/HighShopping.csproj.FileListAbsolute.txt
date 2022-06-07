@@ -297,3 +297,5 @@ C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\bin\Debu
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Index.cshtml.g.cs
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Create.cshtml.g.cs
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Categories\Edit.cshtml.g.cs
+C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Products\Index.cshtml.g.cs
+C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Products\Create.cshtml.g.cs

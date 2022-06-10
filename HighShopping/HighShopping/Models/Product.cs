@@ -17,8 +17,7 @@ namespace HighShopping.Models
         public string Slug { get; set; }
         [Required, MinLength(4, ErrorMessage = "Bạn phải nhập tối thiểu 4 ký tự")]
         public string Description { get; set; }
-        [Column(TypeName = "decimal(18,3)")]
-        public decimal Price { get; set; }
+        public float Price { get; set; }
 
         [Range(1, int.MaxValue, ErrorMessage = "Hãy chọn danh mục cho sản phẩm")]
         public int CategoryId { get; set; }      

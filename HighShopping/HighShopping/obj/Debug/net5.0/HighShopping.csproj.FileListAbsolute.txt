@@ -303,3 +303,5 @@ C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debu
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Areas\Admin\Views\Products\Edit.cshtml.g.cs
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Views\Pages\Page.cshtml.g.cs
 C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Views\Shared\Components\MainMenu\Default.cshtml.g.cs
+C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
+C:\Users\nguye\Desktop\c5\HighShoppingProject\HighShopping\HighShopping\obj\Debug\net5.0\Razor\Views\Products\ProductsByCategory.cshtml.g.cs

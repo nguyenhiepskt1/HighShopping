@@ -17,8 +17,8 @@ namespace HighShopping.Controllers
             _context = context;
         }
 
-        [Route("/products")]
         // GET /products
+        [Route("/products")]
         public async Task<IActionResult> Index(int p = 1)
         {
             int pageSize = 6;

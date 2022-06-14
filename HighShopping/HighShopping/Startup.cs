@@ -25,6 +25,12 @@ namespace HighShopping
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMemoryCache();
+            services.AddSession(options =>
+            {
+                //options.IdleTimeout = TimeSpan.FromSeconds(2);
+                //options.IdleTimeout = TimeSpan.FromDays(2);
+            });
             services.AddControllersWithViews();
             services.AddDbContext<HighShoppingCartContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Connect")));
         }
@@ -47,6 +53,8 @@ namespace HighShopping
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -57,10 +65,6 @@ namespace HighShopping
                     defaults: new { controller = "Pages", action = "Page" }
                     );
 
-                //endpoints.MapControllerRoute(
-                //    "products",
-                //    pattern: "{controller=Products}/{action=Index}/{categorySlug?}"
-                //    );
                 endpoints.MapControllerRoute(
                     "products",
                     "products/{categorySlug}",

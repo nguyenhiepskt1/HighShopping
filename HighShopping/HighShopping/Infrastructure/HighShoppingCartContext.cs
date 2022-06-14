@@ -44,6 +44,14 @@ namespace HighShopping.Infrastructure
                         Slug = "contact",
                         Content = "contact page",
                         Sorting = 100
+                    },
+                    new Page
+                    {
+                        Id = 4,
+                        Title = "Sản phẩm",
+                        Slug = "sản-phẩm",
+                        Content = "Sản phẩm",
+                        Sorting = 100
                     }
                 );
         }

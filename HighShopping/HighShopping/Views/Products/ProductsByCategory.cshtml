@@ -4,7 +4,7 @@
     ViewData["Title"] = "Sảm phẩm";
 }
 
-<h1 class="display-4 pb-5">@ViewBag.CategoryName</h1>
+<h3 class="display-4 pb-5">@ViewBag.CategoryName</h3>
 
 <div class="row">
     @foreach (var item in Model)
@@ -19,7 +19,7 @@
                 @item.Price.ToString("C3")
             </p>
             <p>
-                <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" class="btn btn-primary">Thêm vào giỏ hàng</a>
             </p>
         </div>
     }

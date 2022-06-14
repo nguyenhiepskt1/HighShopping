@@ -1,0 +1,14 @@
+﻿@model SmallCartViewModel
+
+@if (Model != null)
+{
+    <p>Số lượng sản phẩm trong giỏ hàng: <span class="badge badge-primary">@Model.NumberOfItems</span></p>
+    <p>Tổng: <b>@Model.TotalAmout.ToString("C3")</b></p>
+    <a class="btn btn bg-primary mb-2" asp-controller="Cart" asp-action="Index">Xem giỏ hàng</a>
+    <br />
+    <a class="btn btn-danger" asp-controller="Cart" asp-action="Clear">Xóa giỏ hàng</a>
+}
+else
+{
+    <p class="lead m-0">Giỏ hàng của bạn đang trống</p>
+}

@@ -8,41 +8,65 @@
 {
     <h1>Chi tiết giỏ hàng</h1>
 
-    <table class="table">
-        <tr>
-            <th>Sản phẩm</th>
-            <th>Số lượng</th>
-            <th></th>
-            <th>Giá</th>
-            <th>Tổng tiền</th>
-        </tr>
-        @foreach (var item in Model.CartItems)
-        {
+    <div class="cartWrapper">
+        <div class="cartbg d-none">
+            <h3 class="text-center">Đang chuyển tới trang thanh toán...</h3>
+            <img src="~/image/load.gif" />
+        </div>
+        <table class="table">
             <tr>
-                <td>@item.ProductName</td>
-                <td>@item.Quantity</td>
-                <td>
-                    <a asp-action="Add" asp-route-id="@item.ProductId" class="btn btn-sm btn-success">+</a>
-                    <a asp-action="Decrease" asp-route-id="@item.ProductId" class="btn btn-sm btn-warning">-</a>
-                    <a asp-action="Remove" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Xóa</a>
-                </td>
-                <td>@item.Price.ToString("C3")</td>
-                <td>@Model.CartItems.Where(x=>x.ProductId == item.ProductId).Sum(x=>x.Quantity * x.Price).ToString("C3")</td>
-
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th></th>
+                <th>Giá</th>
+                <th>Tổng tiền</th>
             </tr>
-        }
-        <tr>
-            <td class="text-right" colspan="12">Thành tiền: @Model.GrandTotal.ToString("C3")</td>
-        </tr>
-        <tr>
-            <td class="text-right" colspan="4">
-                <a asp-action="Clear" class="btn btn-danger">Xóa giỏ hàng</a>
-                <a href="#" class="btn btn-primary">Thanh toán</a>
-            </td>
-        </tr>
-    </table>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>
+                        <a asp-action="Add" asp-route-id="@item.ProductId" class="btn btn-sm btn-success">+</a>
+                        <a asp-action="Decrease" asp-route-id="@item.ProductId" class="btn btn-sm btn-warning">-</a>
+                        <a asp-action="Remove" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                    <td>@item.Price.ToString("C3")</td>
+                    <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("C3")</td>
+
+                </tr>
+            }
+            <tr>
+                <td class="text-right" colspan="12">Thành tiền: @Model.GrandTotal.ToString("C3")</td>
+            </tr>
+            <tr>
+                <td class="text-right" colspan="4">
+                    <a asp-action="Clear" class="btn btn-danger">Xóa giỏ hàng</a>
+                    <a href="#" class="btn btn-primary checkout">Thanh toán</a>
+                </td>
+            </tr>
+        </table>
+    </div>
 }
 else
 {
     <h3 class="display-4 text-center">Giỏ hàng của bạn đang trống</h3>
+}
+
+<partial name="~/Views/Cart/_PaypalPartial.cshtml" for="CartItems" />
+
+@section Scripts {
+    <script>
+    $(function () {
+        $("a.checkout").click(function (e) {
+            e.preventDefault();
+
+            $("div.cartbg").removeClass("d-none");
+
+            $.get("/cart/clear/", {}, function () {
+                $("form.paypalform").submit();
+            });
+        })
+    });
+    </script>
 }

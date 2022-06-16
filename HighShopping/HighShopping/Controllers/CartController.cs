@@ -51,10 +51,8 @@ namespace HighShopping.Controllers
 
             HttpContext.Session.SetJson("Cart", cart);
 
-            if(HttpContext.Request.Headers["X-Requested-With"] != "XMLHttpRequest")
-            {
+            if (HttpContext.Request.Headers["X-Requested-With"] != "XMLHttpRequest")
                 return RedirectToAction("Index");
-            }
 
             return ViewComponent("SmallCart");
         }
@@ -112,7 +110,9 @@ namespace HighShopping.Controllers
         public IActionResult Clear()
         {
             HttpContext.Session.Remove("Cart");
-            return RedirectToAction("Index", "Products");
+            if (HttpContext.Request.Headers["X-Requested-With"] != "XMLHttpRequest")
+                return Redirect(Request.Headers["Refer"].ToString());
+            return Ok();
         }
     }
 }

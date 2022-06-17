@@ -1,5 +1,6 @@
 ﻿using HighShopping.Infrastructure;
 using HighShopping.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace HighShopping.Controllers
 {
+ 
     public class CartController : Controller
     {
         private readonly HighShoppingCartContext _context;
@@ -29,8 +31,7 @@ namespace HighShopping.Controllers
                 GrandTotal = cart.Sum(x => x.Price * x.Quantity)
             };
             return View(cartVM);
-        }
-
+        }    
         // GET /cart/add/id
         public async Task<IActionResult> Add(int id)
         {
@@ -111,7 +112,7 @@ namespace HighShopping.Controllers
         {
             HttpContext.Session.Remove("Cart");
             if (HttpContext.Request.Headers["X-Requested-With"] != "XMLHttpRequest")
-                return Redirect(Request.Headers["Refer"].ToString());
+                return Redirect(Request.Headers["Referer"].ToString());
             return Ok();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using HighShopping.Infrastructure;
 using HighShopping.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace HighShopping.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin,editor")]
     [Area("Admin")]
     public class ProductsController : Controller
     {

@@ -1,4 +1,5 @@
 ﻿using HighShopping.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HighShopping.Infrastructure
 {
-    public class HighShoppingCartContext : DbContext
+    public class HighShoppingCartContext : IdentityDbContext<AppUser>
     {
         public HighShoppingCartContext(DbContextOptions<HighShoppingCartContext> options) : base(options)
         {
@@ -15,45 +16,6 @@ namespace HighShopping.Infrastructure
 
         public DbSet<Page> Pages { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Product> Products { get; set; }
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Page>().HasData(
-                    new Page
-                    {
-                        Id = 1,
-                        Title = "Trang chủ",
-                        Slug = "home",
-                        Content = "home page",
-                        Sorting = 0
-                    },
-                    new Page
-                    {
-                        Id = 2,
-                        Title = "Về chúng tôi",
-                        Slug = "about-us",
-                        Content = "about us page",
-                        Sorting = 100
-                    },
-                    new Page
-                    {
-                        Id = 3,
-                        Title = "Liên hệ",
-                        Slug = "contact",
-                        Content = "contact page",
-                        Sorting = 100
-                    },
-                    new Page
-                    {
-                        Id = 4,
-                        Title = "Sản phẩm",
-                        Slug = "sản-phẩm",
-                        Content = "Sản phẩm",
-                        Sorting = 100
-                    }
-                );
-        }
+        public DbSet<Product> Products { get; set; }       
     }
 }

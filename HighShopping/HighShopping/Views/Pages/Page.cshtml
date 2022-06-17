@@ -4,5 +4,8 @@
     ViewData["Title"] = "HighShopping";
 }
 
-@Html.Raw(Model.Content)
+@if (Model != null)
+{
+    @Html.Raw(Model.Content)
+}
 

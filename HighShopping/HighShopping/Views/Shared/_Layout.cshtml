@@ -20,7 +20,33 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        @await Component.InvokeAsync("MainMenu")  
+                        @await Component.InvokeAsync("MainMenu")
+                    </ul>
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        @if (User?.Identity?.IsAuthenticated ?? false)
+                        {
+                            <li class="nav-item ml-1">
+                                <a asp-controller="Account" asp-action="Edit" class="btn btn-primary">Tài khoản của tôi</a>
+                            </li>
+                            <li class="nav-item ml-1">
+                                <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Chào @User.Identity.Name, Đăng xuất</a>
+                            </li>
+                            @if (User.IsInRole("admin") || User.IsInRole("editor"))
+                            {
+                                <li class="nav-item ml-1">
+                                    <a asp-area="Admin" asp-controller="Pages" asp-action="Index" class="btn btn-success">Khu vực quản trị</a>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Account" asp-action="Login" class="btn btn-success">Đăng nhập</a>
+                            </li>
+                            <li class="nav-item ml-1">
+                                <a asp-controller="Account" asp-action="Register" class="btn btn-primary">Đăng ký</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -28,6 +54,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <partial name="_NotificationPartial" />
             @RenderBody()
         </main>
     </div>

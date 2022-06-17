@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="Admin" asp-controller="Pages" asp-action="Index">
+                <a class="navbar-brand" href="/">
                     <img src="/image/logo.png" alt="" width="150" class="d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -28,6 +28,15 @@
                         </li>
                         <li class="nav-item mx-4">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Products" asp-action="Index"><h5>Sản phẩm</h5></a>
+                        </li>
+                        <li class="nav-item mx-4">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Users" asp-action="Index"><h5>Người dùng</h5></a>
+                        </li>
+                        <li class="nav-item mx-4">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Roles" asp-action="Index"><h5>Quyền</h5></a>
+                        </li>
+                        <li class="nav-item ml-1 logout">
+                            <a asp-area="" asp-controller="Account" asp-action="Logout" class="btn btn-danger">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>

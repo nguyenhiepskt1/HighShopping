@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+@{
+    ViewData["Title"] = "Quản lý quyền";
+}
+
+<h1>Quản lý quyền</h1>
+
+<p>
+    <a asp-action="Create">Thêm mới</a>
+</p>
+
+<table class="table sorting" id="pages">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Role</th>
+            <th>User</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@role.Id</td>
+                <td>@role.Name</td>
+                <td user-role="@role.Id"></td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = role.Id }) |                   
+                    @Html.ActionLink("Xóa", "Delete", new { id = role.Id }, new { onclick = "return confirm('Bạn có chắc chắn muốn xóa?');" })                 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

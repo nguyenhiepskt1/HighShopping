@@ -31,13 +31,13 @@
                         <a asp-action="Decrease" asp-route-id="@item.ProductId" class="btn btn-sm btn-warning">-</a>
                         <a asp-action="Remove" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger">Xóa</a>
                     </td>
-                    <td>@item.Price.ToString("C3")</td>
-                    <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("C3")</td>
+                    <td>@(item.Price * 23),000 VNĐ</td> 
+                    <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price * 23),000 VNĐ</td>
 
                 </tr>
             }
             <tr>
-                <td class="text-right" colspan="12">Thành tiền: @Model.GrandTotal.ToString("C3")</td>
+                <td class="text-right" colspan="12">Thành tiền: @(Model.GrandTotal * 23),000 VNĐ</td>
             </tr>
             <tr>
                 <td class="text-right" colspan="4">

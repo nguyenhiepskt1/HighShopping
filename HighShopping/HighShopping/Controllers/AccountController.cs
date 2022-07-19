@@ -122,7 +122,6 @@ namespace HighShopping.Controllers
                 {
                     appUser.PasswordHash = passwordHasher.HashPassword(appUser, user.Password);
                 }
-
                 IdentityResult result = await userManager.UpdateAsync(appUser);
                 if(result.Succeeded)
                 {

@@ -127,3 +127,16 @@ li.nav-item.logout {
     list-style:none;
 }
 
+div.cartsmall {
+    margin-left: 170px;
+    margin-bottom: 10px;
+}
+
+div>svg {
+    margin-bottom: 20px;
+}
+.cartsmall > p {
+    margin-top: 70px;
+    margin-left: 50px;
+}
+

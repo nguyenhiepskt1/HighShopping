@@ -93,7 +93,7 @@ namespace HighShopping.Areas.Admin.Controllers
 
                 TempData["Success"] = "Thêm sản phẩm thành công!";
 
-                return RedirectToAction("Index");
+                return Redirect("/admin/products");
             }
             return View(product);
         }
@@ -154,7 +154,7 @@ namespace HighShopping.Areas.Admin.Controllers
 
                 TempData["Success"] = "Sửa sản phẩm thành công!";
 
-                return RedirectToAction("Index");
+                return Redirect("/admin/products");
             }
             return View(product);
         }
@@ -184,7 +184,7 @@ namespace HighShopping.Areas.Admin.Controllers
                 TempData["Success"] = "Xóa sản phẩm thành công!";
             }
 
-            return RedirectToAction("Index");
+                return Redirect("/admin/products");
         }
     }
 }

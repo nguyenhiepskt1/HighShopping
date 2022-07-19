@@ -39,7 +39,7 @@ namespace HighShopping.Infrastructure
                 }
             }
 
-            output.Content.SetContent(names.Count == 0 ? "No users" : string.Join(", ", names));
+            output.Content.SetContent(names.Count == 0 ? "Chưa có người dùng" : string.Join(", ", names));
         }
     }
 }

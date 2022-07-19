@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tnc7nmVhf0fCGcXvNSgM+OD6kuA9O/AlZDCAyEP8B4NR0DZFrIxNmfsMhDFBTuRXAzBdjdNkkkOmeoWaRb++9A==",
+  "dgSpecHash": "bqSTE/eZQYlhwmc3xo6wjCz70jpkNnWQvK96b0+kUjOqSWKsgMSIX0iSEItj53b8vywobD3Vsy/H6dAIax6yGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nguye\\Desktop\\c5\\HighShoppingProject\\HighShopping\\HighShopping\\HighShopping.csproj",
+  "projectFilePath": "C:\\Users\\nguye\\Desktop\\High\\HighShopping\\HighShopping\\HighShopping\\HighShopping.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nguye\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\nguye\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.17\\microsoft.aspnetcore.cryptography.internal.5.0.17.nupkg.sha512",
